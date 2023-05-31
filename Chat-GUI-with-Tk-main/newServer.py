@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-Created on Fri Apr 26 19:43:20 2019
 
-@author: CSE
 """
 
 from socket import *                             # for networking  
