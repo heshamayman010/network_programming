@@ -1,0 +1,17 @@
+
+<!-- The variable messageform is given the value of the ngForm directive, which Angular uses to manage the form as an Angular form. 
+This allows you to access the form's properties and methods in the template. -->
+<form #messageform="ngForm" (ngSubmit)="sendmessage()" autocomplete="off">
+<div class="row">
+<div class="col-9">
+
+    <input type="text" class="form-control" [(ngModel)]="messagecontent" name="messagecontent" required placeholder="enter your message here ">
+</div>
+<div class="col-3">
+<div class="d-grid ">
+    <!-- then we must disable the message if the message form is not valid  -->
+<button class=" btn btn-dark " type="submit" [disabled]="!messageform.valid">Send Message</button>
+</div>
+</div>
+</div>
+</form>

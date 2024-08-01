@@ -1,0 +1,14 @@
+<!-- this component is mainly used as a child component to recieve the messages and show it  -->
+
+
+<div style="overflow-y: auto ; height: 500px;">
+                        <p class="card-text" *ngFor="let messeage of mymessages">
+                            <span class="text-primary">
+                                {{messeage.from}}:
+                            </span>
+                            <span class="m-1"> 
+                                  {{messeage.content}}  
+                            </span>
+                        </p>
+                       
+                       </div>

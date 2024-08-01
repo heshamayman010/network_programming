@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-lg-2">
+        <div class="d-grid">
+            <button class=" btn-primary btn-block" (click)="backtohome()">Back to home </button>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-lg-2">
+
+        <div class="card border-secondary mb-3">
+
+            <div class="card-header h3 text-muted text-center">
+
+                Users
+
+            </div>
+
+            <div class="card-body" style="min-height: 500px;">
+                <div class="row mt-1" *ngFor="let user of service.liveusers">
+
+                    <div class="col">
+                        <div class="d-grid">
+
+                            <!-- <button class="btn card-text btn-dark" type="button">{{user}} </button> -->
+
+                            <!-- here we will make it in differnt colour if the username is hesham and we will use it for the admin
+                             and also you can use [disabled] for any one other than the admin  -->
+                            <button class="btn card-text "
+                            
+                            (dblclick)="openprivatechat(user)"
+                            [disabled]="user==service.myname"
+                            [ngClass]="{'btn-success':user===service.myname,'btn-dark':user!==service.myname}"
+                            type="button">{{user}} </button>
+<!-- if the user double clicked on the another user button the private chat will open   -->
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+</div>
+
+        <!-- now the part of the texting 0 -->
+
+        <div class="col-lg-9">
+
+            <div class="card border-secondary">
+
+                <div class="card-header h3 text-muted text-center">Messages To all users  </div>
+
+                    <app-messages [mymessages]="service.messages"></app-messages>
+
+               
+            </div>
+<!-- and here is the message place  -->
+<div class="card-footer">
+<!-- <form autocomplete="off">
+<div class="row">
+<div class="col-9">
+
+    <input type="text" class="form-control" placeholder="enter your message here ">
+</div>
+<div class="col-3">
+<div class="d-grid ">
+<button class=" btn btn-dark " type="submit">Send Message</button>
+</div>
+</div>
+</div>
+</form> -->
+<app-chatinput (contentemitter)="sendMessag($event)"></app-chatinput>
+</div>
+
+        </div>
+
+    </div>

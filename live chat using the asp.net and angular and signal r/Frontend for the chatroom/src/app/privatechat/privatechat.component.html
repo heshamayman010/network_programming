@@ -1,0 +1,36 @@
+<!--  this code is the for the modal  -->
+
+
+<div class="modal-header">
+
+<h3 class="modal-title">
+
+{{touser}}
+</h3> 
+<!-- dismiss here in the modal is used to close the modal  -->
+<button type="button" class="btn-close" (click)="activemodal.dismiss('cross click')">
+
+
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="card border-secondary">
+
+    <div class="h3 card-header text-muted text-center "> messages between you and {{touser}}</div>
+
+
+    <div class="card-body">
+<!-- [mymessages ] is used here because it is used in the @input  -->
+        <app-messages [mymessages]="myservice.privatemessages"> </app-messages>
+    </div>
+
+    <div class="card-footer">
+<!-- here we used the content emitter as it is used in the output from the child component to the parent component -->
+<app-chatinput (contentemitter)="sendmessage($event)">  </app-chatinput>
+    </div>
+</div>
+
+</div>
